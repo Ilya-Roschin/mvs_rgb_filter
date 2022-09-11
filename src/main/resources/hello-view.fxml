@@ -7,11 +7,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.mvs.mvs_rgb_filter.Controller">
    <children>
       <ImageView fx:id="imageOutput" fitHeight="242.0" fitWidth="350.0" layoutX="14.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="filePath" layoutX="381.0" layoutY="74.0" prefHeight="25.0" prefWidth="205.0" promptText="путь к файлу" />
+      <TextField fx:id="filePath" layoutX="382.0" layoutY="41.0" prefHeight="25.0" prefWidth="205.0" promptText="путь к файлу" />
       <RadioButton fx:id="redBtn" layoutX="421.0" layoutY="138.0" mnemonicParsing="false" text="red">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
@@ -19,7 +18,9 @@
       </RadioButton>
       <RadioButton fx:id="greenBtn" layoutX="421.0" layoutY="174.0" mnemonicParsing="false" text="green" toggleGroup="$group" />
       <RadioButton fx:id="blueBtn" layoutX="483.0" layoutY="138.0" mnemonicParsing="false" text="blue" toggleGroup="$group" />
-      <Button fx:id="button" layoutX="411.0" layoutY="219.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="применить" />
+      <Button fx:id="button" layoutX="411.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="применить" />
       <RadioButton fx:id="grayBtn" layoutX="483.0" layoutY="174.0" mnemonicParsing="false" text="gray" toggleGroup="$group" />
+      <RadioButton fx:id="noneBtn" layoutX="461.0" layoutY="210.0" mnemonicParsing="false" text="none" toggleGroup="$group" />
+      <Button fx:id="addFileButton" layoutX="421.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="добавить" />
    </children>
 </Pane>
