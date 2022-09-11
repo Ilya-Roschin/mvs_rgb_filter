@@ -65,9 +65,6 @@ public class ImageLogic {
                 for (int j = 0; j < bufferedImage.getHeight(); j++) {
                     final int color = bufferedImage.getRGB(i, j);
                     final int r = (color >> 16) & 0xff;
-                    final int g = (color >> 8) & 0xff;
-                    final int b = color & 0xff;
-                    //int gray = (int) (0.3 * r + 0.59 * g + 0.11 * b);
                     int newPixel = colorToRGB(255, r, 0, 0);
                     redBufferedImage.setRGB(i, j, newPixel);
                 }
@@ -89,11 +86,8 @@ public class ImageLogic {
             for (int i = 0; i < bufferedImage.getWidth(); i++) {
                 for (int j = 0; j < bufferedImage.getHeight(); j++) {
                     final int color = bufferedImage.getRGB(i, j);
-                    final int r = (color >> 16) & 0xff;
                     final int g = (color >> 8) & 0xff;
-                    final int b = color & 0xff;
-                    //int gray = (int) (0.3 * r + 0.59 * g + 0.11 * b);
-                    int newPixel = colorToRGB(255, r, 0, 0);
+                    int newPixel = colorToRGB(255, 0, g, 0);
                     greenBufferedImage.setRGB(i, j, newPixel);
                 }
             }
@@ -114,11 +108,8 @@ public class ImageLogic {
             for (int i = 0; i < bufferedImage.getWidth(); i++) {
                 for (int j = 0; j < bufferedImage.getHeight(); j++) {
                     final int color = bufferedImage.getRGB(i, j);
-                    final int r = (color >> 16) & 0xff;
-                    final int g = (color >> 8) & 0xff;
                     final int b = color & 0xff;
-                    //int gray = (int) (0.3 * r + 0.59 * g + 0.11 * b);
-                    int newPixel = colorToRGB(255, r, 0, 0);
+                    int newPixel = colorToRGB(255, 0, 0, b);
                     blueBufferedImage.setRGB(i, j, newPixel);
                 }
             }

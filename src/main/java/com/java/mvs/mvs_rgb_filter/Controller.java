@@ -1,16 +1,14 @@
 package com.java.mvs.mvs_rgb_filter;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 public class Controller {
 
@@ -48,20 +46,56 @@ public class Controller {
     public void initialize() {
         addFileButton.setOnAction(actionEvent -> {
             IMAGE_LOGIC.setStartImage(filePath.getText());
-            try {
-                File file = new File("src/main/java/com/java/mvs/mvs_rgb_filter/test_filter.png");
-                String localUrl = file.toURI().toURL().toString();
-                imageOutput.setImage(new Image(localUrl));
-            } catch (IOException e) {
-                System.out.println("");
-            }
+            setStartImage();
             IMAGE_LOGIC.toRedImage();
         });
 
         button.setOnAction(actionEvent -> {
-
-
+            RadioButton selected = (RadioButton) group.getSelectedToggle();
+            switch (selected.getText()) {
+                case ("gray"):
+                    IMAGE_LOGIC.toGrayImage();
+                    setFilterImage();
+                    break;
+                case ("red"):
+                    IMAGE_LOGIC.toRedImage();
+                    setFilterImage();
+                    break;
+                case ("green"):
+                    IMAGE_LOGIC.toGreenImage();
+                    setFilterImage();
+                    break;
+                case ("blue"):
+                    IMAGE_LOGIC.toBlueImage();
+                    setFilterImage();
+                    break;
+                default:
+                    setStartImage();
+                    break;
+            }
         });
+    }
+
+    private void setStartImage() {
+        File file = new File("src/main/java/com/java/mvs/mvs_rgb_filter/none_filter.png");
+        String localUrl = null;
+        try {
+            localUrl = file.toURI().toURL().toString();
+        } catch (MalformedURLException e) {
+
+        }
+        imageOutput.setImage(new Image(localUrl));
+    }
+
+    private void setFilterImage() {
+        File file = new File("src/main/java/com/java/mvs/mvs_rgb_filter/filter.png");
+        String localUrl = null;
+        try {
+            localUrl = file.toURI().toURL().toString();
+        } catch (MalformedURLException e) {
+
+        }
+        imageOutput.setImage(new Image(localUrl));
     }
 
 
